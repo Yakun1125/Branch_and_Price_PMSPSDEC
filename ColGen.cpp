@@ -95,8 +95,8 @@ double ColumnGen::RunColGen(vector<vector<int>>& schedule, vector<double>& skd_v
 				}
 				else if (branch_info[i][j] == 2) {
 					Sub.add(x[i][j] == 1);
-					Sub.add(a[i] == 1);
-					Sub.add(a[j] == 1);
+					IloIntVar bi(env, 0, 1);
+					Sub.add(a[i] + a[j] == 2 * bi);
 				}
 			}
 		}
